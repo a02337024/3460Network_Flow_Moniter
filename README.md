@@ -23,10 +23,10 @@ Run this command in the git terminal to compile the program:
 g++ main.cpp packet_parser.cpp ./npcap-sdk-1.16/Lib/x64/wpcap.lib -o main.exe -I./libpcap1 -lws2_32
 
 To run the compiled program in the git terminal do:
-MSYS_NO_PATHCONV=1 ./main.exe '{Interface}'
+MSYS_NO_PATHCONV=1 ./main.exe '{Interface}' #bytes #lines per report
 Where interface is the interfaceguid. 
 Example:
-MSYS_NO_PATHCONV=1 ./main.exe '{DFCFD80E-D1E6-4E09-B693-670A3FA79C95}'
+MSYS_NO_PATHCONV=1 ./main.exe '{DFCFD80E-D1E6-4E09-B693-670A3FA79C95}' 10 10
 
 To run the program in Ubuntu(for Linux) do:
 To compile:

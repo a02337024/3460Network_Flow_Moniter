@@ -3,12 +3,9 @@
 #include <iostream>
 #include <cstdint> //For using std::uint8_t
 #include <string>
-
-
-//auto packet = parser.parse(bytes, header->caplen, header->len); //From main.cpp currently on line 38
+using namespace std;
 
 std::optional<PacketInfo> PacketParser::parse(const u_char* bytes, int caplen, int len) {
-
 	constexpr std::size_t eth = 14;
 	if (caplen < eth + 20) {
 		return std::nullopt;
