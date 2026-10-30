@@ -26,7 +26,7 @@ To run the compiled program in the git terminal do:
 MSYS_NO_PATHCONV=1 ./main.exe '{Interface}' #bytes #lines per report
 Where interface is the interfaceguid. 
 Example:
-MSYS_NO_PATHCONV=1 ./main.exe '{DFCFD80E-D1E6-4E09-B693-670A3FA79C95}' 10 10
+MSYS_NO_PATHCONV=1 ./main.exe '{DFCFD80E-D1E6-4E09-B693-670A3FA79C95}' bytes 10 10
 
 To run the program in Ubuntu(for Linux) do:
 To compile:
