@@ -33,22 +33,22 @@ int main(int argc, char*argv[]) {
 	//(PCAP_ERRBUF_SIZE is from libpvap and specifies how large errbuf should be)
 	
 	std::string input = argv[1];
-	std::string interface = " ";
+	std::string dev_name = " ";
 #if defined(_WIN32) || defined(__WIN32__) || defined(__CYGWIN__) || defined(__MSYS__)
 	if (input.rfind("\\Device\\NPF_", 0) == 0) {
-		interface = input;
+		dev_name = input;
 	}
 	else {
 		if (!input.empty() && input.front() == '{') input.erase(0, 1);
 		if (!input.empty() && input.back() == '}') input.pop_back();
 
-		interface = "\\Device\\NPF_{" + input + "}";
+		dev_name = "\\Device\\NPF_{" + input + "}";
 	}
 #else
-	interface = input;
+	dev_name = input;
 #endif
-	std::cout << "Opening device: " << interface << std::endl;
-	pcap_t* raw = pcap_open_live(interface.c_str(), 65535, 0, 1000, errbuf); //This line opens the network interface for packet capture.
+	std::cout << "Opening device: " << dev_name << std::endl;
+	pcap_t* raw = pcap_open_live(dev_name.c_str(), 65535, 0, 1000, errbuf); //This line opens the network interface for packet capture.
 	using PcapHandle = std::unique_ptr<pcap_t, decltype(&pcap_close)>; //This will use pcap_close() instead of delete
 	PcapHandle handle(raw, &pcap_close);
 	Reporter report;

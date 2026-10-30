@@ -1,5 +1,7 @@
 #include "packet_parser.h"
+#if !defined(_WIN32) && !defined(_WIN64)
 #include <arpa/inet.h>
+#endif
 #include <iostream>
 #include <cstdint> //For using std::uint8_t
 #include <string>
